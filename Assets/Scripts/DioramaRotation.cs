@@ -16,8 +16,6 @@ public class DioramaRotation : MonoBehaviour {
         _level = this.gameObject;
 
         //Set Level to correct position
-        var startPos = new Vector3(0,0,0);
-        _level.transform.position = startPos;
         _levelRotation = _level.transform.rotation.eulerAngles;
     }
 

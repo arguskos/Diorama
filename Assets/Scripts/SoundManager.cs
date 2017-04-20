@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(Sound soundName)
     {
 
-        soundArray[(int)soundName].Play();
+        //soundArray[(int)soundName].Play();
 
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InputBase : MonoBehaviour
@@ -11,7 +12,7 @@ public class InputBase : MonoBehaviour
 
     private GameObject UserSequence;
     private SoundManager _soundManager;
-    private List<int> _sequence = new List<int>();
+    public  List<int> _sequence = new List<int>();
     private int _currentLetter = 0;
 
     void Start()
@@ -76,6 +77,19 @@ public class InputBase : MonoBehaviour
     }
     private void Check()
     {
+
+        var l = _sequence;
+        l.Sort();
+        var d = DioramaObject.Symbols;
+        d.Sort();
+        if (l.SequenceEqual(d))
+        {
+            print("RIGHT");
+        }
+        else
+        {
+            print("WRONG");
+        }
         //bool right = true;
         //for (int i = 0; i < Cequencer.LettersInSequence.Count; i++)
         //{

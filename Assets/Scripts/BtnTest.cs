@@ -11,10 +11,43 @@ public class BtnTest : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButton("btn"))
+        if (Input.GetButton("turnL"))
         {
-            Debug.Log("akakaka");
+            Debug.Log("turnl");
         }
+        if (Input.GetButton("turnR"))
+        {
+            Debug.Log("turnr");
+        }
+        if (Input.GetButton("extraBtn"))
+        {
+            Debug.Log("extr");
+        }
+        if (Input.GetButton("dipl1"))
+        {
+            Debug.Log("1");
+        }
+        if (Input.GetButton("dipl2"))
+        {
+            Debug.Log("2");
+        }
+        if (Input.GetButton("dipl3"))
+        {
+            Debug.Log("3");
+        }
+        if (Input.GetButton("dipl4"))
+        {
+            Debug.Log("4");
+        }
+        if (Input.GetButton("dipl5"))
+        {
+            Debug.Log("5");
+        }
+        if (Input.GetButton("dipl6"))
+        {
+            Debug.Log("6");
+        }
+
 		
 	}
 }

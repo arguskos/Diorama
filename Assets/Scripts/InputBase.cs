@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class InputBase : MonoBehaviour
 {
 
@@ -13,6 +13,8 @@ public class InputBase : MonoBehaviour
     private GameObject UserSequence;
     private SoundManager _soundManager;
     public  List<int> _sequence = new List<int>();
+
+    public GameObject MessegeText;
     private int _currentLetter = 0;
 
     void Start()
@@ -86,10 +88,14 @@ public class InputBase : MonoBehaviour
         if (l.SequenceEqual(d))
         {
             print("RIGHT");
+            MessegeText.GetComponent<BlinkText>().TriggerText("Right", 1.0f, true);
+
         }
         else
         {
             print("WRONG");
+            MessegeText.GetComponent<BlinkText>().TriggerText("Wrong", 1.0f, true);
+
         }
         //bool right = true;
         //for (int i = 0; i < Cequencer.LettersInSequence.Count; i++)

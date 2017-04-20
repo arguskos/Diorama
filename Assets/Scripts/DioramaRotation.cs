@@ -24,7 +24,7 @@ public class DioramaRotation : MonoBehaviour {
 	void Update () {
 
         //Set Amount of rotation to 45 degrees
-        var rotamount = new Vector3(0, 45, 0);
+        var rotamount = new Vector3(0, 90, 0);
 
 
         //On Button Up

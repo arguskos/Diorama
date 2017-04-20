@@ -34,6 +34,7 @@ public class InputBase : MonoBehaviour
             var t = Instantiate(Letter, transform.position + new Vector3(0, 0, -0.24f + i), Quaternion.Euler(0, 90, 0));
             t.AddComponent<UISymbolEffects>();
             t.transform.parent = UserSequence.transform;
+            t.layer = LayerMask.NameToLayer("UI");
             _sequence.Add(0);
         }
     }
@@ -130,26 +131,26 @@ public class InputBase : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("extraBtn"))
         {
             Check();
 
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("dipl1"))
         {
             NextLetter();
             _soundManager.PlaySound(SoundManager.Sound.Select);
 
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown("dipl2"))
 
         {
             PreviousLetter();
             _soundManager.PlaySound(SoundManager.Sound.Select);
 
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("dipl3"))
         {
             //Decrease current letter
             _currentLetter--;
@@ -170,7 +171,7 @@ public class InputBase : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("dipl4"))
         {
             //Decrease current letter
             _currentLetter++;

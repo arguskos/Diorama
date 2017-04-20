@@ -28,13 +28,13 @@ public class DioramaRotation : MonoBehaviour {
 
 
         //On Button Up
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetButtonDown("turnL"))
         {
             _levelRotation += rotamount;
         }
 
         //On Button Down
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetButtonDown("turnR"))
         {
             _levelRotation -= rotamount;
         }

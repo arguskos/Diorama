@@ -14,14 +14,18 @@ public class DioramaObject : MonoBehaviour
     private int _FellHash = Animator.StringToHash("Hint");
     public DioramaObject DependentObject;
     public SignObject Sign;
-    public Transform SpawnPoint;    
-    
+    public Transform SpawnPoint;
+
+    private SoundManager _soundManager;
+
+
     private bool _activated = false;
     public bool Item = false;
     public static List<int> Symbols=new List<int>();
     public static int CurrentFound = 0;
     void Start()
     {
+        _soundManager = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         Symbols.Clear();
         for (int i = 0; i < 4; i++)
         {
@@ -96,6 +100,7 @@ public class DioramaObject : MonoBehaviour
                     print(Symbols[CurrentFound]);
                     b.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(Mathf.Floor(Symbols[CurrentFound] / 4) * 0.25f, Symbols[CurrentFound] % 4 * 0.25f));
                     CurrentFound++;
+                    _soundManager.PlaySound("Error");
                 }
                 if (Contains)
                 {

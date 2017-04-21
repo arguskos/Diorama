@@ -98,6 +98,7 @@ public class InputBase : MonoBehaviour
         if (l.SequenceEqual(d))
         {
             print("RIGHT");
+            _soundManager.PlaySound("Progress_002");
             MessegeText.GetComponent<BlinkText>().TriggerText("Right", 1.0f, true);
             Score.text = "200";
             EndGame();
@@ -105,6 +106,7 @@ public class InputBase : MonoBehaviour
         }
         else
         {
+            _soundManager.PlaySound("Wrong");
             print("WRONG");
             MessegeText.GetComponent<BlinkText>().TriggerText("Wrong", 1.0f, true);
 
@@ -158,19 +160,22 @@ public class InputBase : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("dipl1"))
         {
             NextLetter();
-            _soundManager.PlaySound(SoundManager.Sound.Select);
+            _soundManager.PlaySound("SelectionUI");
 
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown("dipl2"))
 
         {
             PreviousLetter();
-            _soundManager.PlaySound(SoundManager.Sound.Select);
+            _soundManager.PlaySound("SelectionUI");
+
+
 
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("dipl3"))
         {
             //Decrease current letter
+            _soundManager.PlaySound("Selection");
             _currentLetter--;
             if (_currentLetter < 0)
                 _currentLetter = _sequence.Count - 1;
@@ -192,6 +197,8 @@ public class InputBase : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("dipl4"))
         {
             //Decrease current letter
+            _soundManager.PlaySound("Selection");
+
             _currentLetter++;
             _currentLetter %= _sequence.Count;
 

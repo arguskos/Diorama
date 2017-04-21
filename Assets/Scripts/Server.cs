@@ -58,7 +58,7 @@ public class Server : MonoBehaviour
         //AndroidNFCReader.ScanNFC(gameObject.name, "OnFinishScan");
 
         CreateTeam();
-
+        Score.text = "0";
     }
 
     private int ID = 0;
@@ -71,7 +71,7 @@ public class Server : MonoBehaviour
         //    t.teamId = Random.Range(0, 333);
         //}
         //PlayerPrefs.SetInt("teamId", t.teamId);
-        string url = "http://192.168.0.151:8000/TeamCreation/1";
+        string url = "http://192.168.0.151:8000/TeamCreation/0";
         Debug.Log("SADASDAPSKKDPS TEAM  CREATIN");
         WWWForm form = new WWWForm();
         form.AddField("name", TeamName);

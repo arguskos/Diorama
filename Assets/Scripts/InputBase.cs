@@ -15,6 +15,9 @@ public class InputBase : MonoBehaviour
     public  List<int> _sequence = new List<int>();
 
     public GameObject MessegeText;
+    public Text Score;
+    public GameObject GameOverText;
+    public Server Server;
     private int _currentLetter = 0;
 
     void Start()
@@ -78,6 +81,13 @@ public class InputBase : MonoBehaviour
 
         obj.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(Mathf.Floor(_sequence[_currentLetter] / 4) * 0.25f, _sequence[_currentLetter] % 4 * 0.25f));
     }
+
+    public void EndGame()
+    {
+        GameOverText.SetActive(true);
+        GameObject.Destroy( UserSequence);
+        Server.LeaveRoom();
+    }
     private void Check()
     {
 
@@ -89,6 +99,8 @@ public class InputBase : MonoBehaviour
         {
             print("RIGHT");
             MessegeText.GetComponent<BlinkText>().TriggerText("Right", 1.0f, true);
+            Score.text = "200";
+            EndGame();
 
         }
         else

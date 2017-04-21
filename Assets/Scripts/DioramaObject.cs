@@ -35,12 +35,34 @@ public class DioramaObject : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (Contains)
-                Activate();
-            else
+            if (!_activated)
             {
-                Deactivate();
+                if (Item)
+                {
+                    gameObject.SetActive(false);
+                }
+                if (DependentObject && DependentObject._activated || Contains && DependentObject == null)
+                {
+
+                    Activate();
+                    var b = Instantiate(Sign, SpawnPoint.position, Quaternion.identity);
+                    b.transform.LookAt(Camera.main.transform);
+                    b.transform.Rotate(new Vector3(0, 180, 0));
+                    b.transform.eulerAngles=new Vector3(0,b.transform.eulerAngles.y,0);
+                    print(Symbols[CurrentFound]);
+                    b.GetComponent<Renderer>().material.SetTextureOffset("_MainTex", new Vector2(Mathf.Floor(Symbols[CurrentFound] / 4) * 0.25f, Symbols[CurrentFound] % 4 * 0.25f));
+                    CurrentFound++;
+                }
+                if (Contains)
+                {
+
+                }
+                else
+                {
+                    Deactivate();
+                }
             }
+            _activated = true;
         }
 
     }
@@ -84,8 +106,9 @@ public class DioramaObject : MonoBehaviour
                     Deactivate();
                 }
             }
+            _activated = true;
+
         }
-        _activated = true;
 
     }
 }
